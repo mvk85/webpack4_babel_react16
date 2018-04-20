@@ -1,0 +1,41 @@
+{
+  "name": "webpack4_babel_react16",
+  "version": "1.0.0",
+  "description": "Config webpack 4 + react16 + babel",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvk85/webpack4_babel_react16.git"
+  },
+  "keywords": [],
+  "author": "Maksim Kaskov",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^8.3.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.2.0",
+    "node-sass": "^4.8.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "postcss-loader": "^2.1.4",
+    "sass-loader": "^7.0.1",
+    "url-loader": "^1.0.1"
+  }
+}

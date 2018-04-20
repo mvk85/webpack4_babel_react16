@@ -1,0 +1,9 @@
+.DS_STORE
+node_modules
+build
+.module-cache
+*.log*
+_nogit
+.idea
+coverage
+$GIT_DIR/source/assets/smev
