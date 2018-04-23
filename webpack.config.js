@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   module: {
@@ -21,14 +22,6 @@ module.exports = {
         ]
       },
       {
-        // test: /\.css$/,
-        // use: [
-        //   MiniCssExtractPlugin.loader,
-        //   "css-loader",
-        //   "postcss-loader",
-        //   "sass-loader"
-        // ]
-
         test: /\.(scss|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -42,15 +35,7 @@ module.exports = {
           },
           {
             loader: "postcss-loader",
-            options: {}
-            // options: {
-            //   autoprefixer: {
-            //     browsers: ["last 2 versions"]
-            //   },
-            //   // plugins: () => [
-            //   //   autoprefixer
-            //   // ]
-            // },
+            options: {} // postcss.config.js
           },
           {
             loader: "sass-loader",
@@ -74,6 +59,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist'], {
+      verbose: true,
+      dry: false,
+      root: __dirname
+    }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"

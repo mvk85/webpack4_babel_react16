@@ -1,5 +1,0 @@
-.container{width:600px;margin:20px auto 0}.tab-panel{display:flex;justify-content:space-between}.form-content{padding:0 20px}.button-panel{padding:10px 20px;display:flex}.button-next{margin-left:auto;background-color:blue;color:#fff}.button-next:disabled{background-color:#eee;color:#000}
-.step{display:flex;align-items:center;padding:0 20px;font-size:13px}.step-selected .step__number{background-color:#ccf}.step-clickable{cursor:pointer}.step__number{background-color:#eee;padding:5px;width:20px;height:20px;border-radius:50%;line-height:20px;text-align:center;flex:0 0 20px}.step__title{margin-left:10px}
-.card-form{display:flex;flex-direction:column}
-
-.personal-form{display:flex;flex-direction:column}

@@ -1,5 +1,6 @@
 .DS_STORE
 node_modules
+dist
 build
 .module-cache
 *.log*
