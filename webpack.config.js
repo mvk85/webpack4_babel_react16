@@ -1,9 +1,16 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
 
-module.exports = {
-  module: {
+const config = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'main.js'
+    // publicPath: 'dist/'
+  },
+  module: {    
     rules: [
       {
         test: /\.js$/,
@@ -39,7 +46,7 @@ module.exports = {
           },
           {
             loader: "sass-loader",
-            options: {}
+            options: {} // external config
           }
         ]
       },
@@ -72,5 +79,22 @@ module.exports = {
       filename: "[name].[hash].css",
       chunkFilename: "[id].css"
     })
-  ]
+  ],
+  devServer: {
+    overlay: true // error to browser
+  },
+  devtool: 'eval-sourcemap'
 };
+
+module.exports = (env, options) => {
+  console.log(options, options.mode); // production
+  const mode = options.mode;
+
+  if (mode === 'production') {
+    config.devtool = 'source-map';
+  } else {
+    config.devtool = 'source-map';
+  }
+  
+  return config;
+}

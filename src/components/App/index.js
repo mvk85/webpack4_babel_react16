@@ -81,6 +81,7 @@ class App extends React.Component {
 
   render() {
     const { step } = this.state;
+    const newStep = {...step};
     return <div className="container">
         <div className="tab-panel">
           <Step 
