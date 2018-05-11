@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -7,7 +8,7 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'main.js'
+    filename: 'app-[hash].js'
     // publicPath: 'dist/'
   },
   module: {    
@@ -54,18 +55,20 @@ const config = {
         test: /\.(pdf|jpg|png|gif|svg|ico)$/,
         use: [
           {
-            loader: 'url-loader?limit=20480&name=assets/img/[name]-[hash].[ext]'
+            loader: 'url-loader?limit=2048&name=assets/img/[name]-[hash].[ext]'
           },
         ]
       },
       {
-        test: /\.(ttf|eot|woff|woff2|svg)$/,
+        test: /\.(ttf|eot|woff|woff2)$/,
         exclude: /img/,
         loader: 'file-loader?name=assets/font/[name].[ext]'
       }
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new CleanWebpackPlugin(['dist'], {
       verbose: true,
       dry: false,
@@ -81,7 +84,12 @@ const config = {
     })
   ],
   devServer: {
-    overlay: true // error to browser
+    contentBase: path.join(__dirname, "dist"),
+    overlay: true, // error to browser
+    hot: true,
+    port: 3000,
+    inline: true,
+    historyApiFallback: true
   },
   devtool: 'eval-sourcemap'
 };
@@ -91,7 +99,7 @@ module.exports = (env, options) => {
   const mode = options.mode;
 
   if (mode === 'production') {
-    config.devtool = 'source-map';
+    config.devtool = false;
   } else {
     config.devtool = 'source-map';
   }
