@@ -95,7 +95,7 @@ const config = {
 };
 
 module.exports = (env, options) => {
-  console.log(options, options.mode); // production
+  // console.log(options, options.mode); // production
   const mode = options.mode;
 
   if (mode === 'production') {
