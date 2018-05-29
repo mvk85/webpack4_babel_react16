@@ -2,11 +2,13 @@
   "presets": [
     "env",
     "react",
-    ["es2015", { "modules": false }],
     "stage-0"
   ],
   "plugins": [
+    "transform-regenerator",
     "transform-class-properties",
+    "syntax-decorators",
+    "transform-decorators-legacy",
     "react-hot-loader/babel"
   ]
 }

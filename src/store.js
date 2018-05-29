@@ -13,7 +13,9 @@ export default initState => {
       applyMiddleware(sagaMiddleware),
       window.devToolsExtension ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
     )
-  )
-}
+  );
 
-sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
+
+  return store;
+}
