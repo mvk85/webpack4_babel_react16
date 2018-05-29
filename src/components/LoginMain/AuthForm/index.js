@@ -23,7 +23,7 @@ export class AuthForm extends React.Component {
     const { loginRequest } = this.props;
 
     if (login && password) {
-      loginRequest({ login, password });
+      loginRequest({ email: login, password });
     }
   };
 
