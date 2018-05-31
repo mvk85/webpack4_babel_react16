@@ -77,6 +77,7 @@ const config = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
+      // favicon: "./images/favicon.ico"
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[hash].css",

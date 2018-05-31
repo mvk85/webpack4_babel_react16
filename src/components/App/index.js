@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
-import LoginMain from '../LoginMain';
-import styled from 'styled-components'
+import { Switch, Route } from 'react-router-dom';
+import CryptoPage from '../CryptoPage';
+import {
+  HeaderWrapper,
+  HeaderContent,
+  MainContent,
+  MainWrapper,
+  Footer
+} from "./styled";
 import './styles/App.scss';
 import './styles/normalize.css';
-
-const Main = styled.main`
-    background-color: #f5f5f6;
-    height: 100%;
-`;
 
 class App extends React.Component {
   render() {
     return (
-      <Main>
-        <LoginMain />
-      </Main>
+      <Fragment>
+        <HeaderWrapper>
+          <HeaderContent>
+            <div>Header</div>
+          </HeaderContent>
+        </HeaderWrapper>
+        <MainWrapper>
+          <MainContent>
+            <Switch>
+              <Route path="/crypto/:cy" component={CryptoPage} />
+            </Switch>
+          </MainContent>
+        </MainWrapper>
+        <Footer>
+          <div>Footer</div>
+        </Footer>
+      </Fragment>
     )
   }
 }

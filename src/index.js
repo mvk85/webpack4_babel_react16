@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import 'babel-polyfill'; // не удалять, нужен для нормальной работы
 import App from './components/App';
 import createStore from './store';
@@ -8,9 +9,11 @@ import createStore from './store';
 const store = createStore();
 
 const Application = (
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
 );
 
 ReactDOM.render(

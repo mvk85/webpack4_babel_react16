@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
-import {loginSuccess} from "../../actions/auth/index";
+import {loginSuccess, logout} from "../../actions/auth/index";
 
 const isAuthorized = handleActions({
-  [loginSuccess]: () => true
-}, null);
+  [loginSuccess]: () => true,
+  [logout]: () => false
+}, false);
 
 export default combineReducers({
   isAuthorized

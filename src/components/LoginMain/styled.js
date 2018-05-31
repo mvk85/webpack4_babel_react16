@@ -24,3 +24,8 @@ export const ContainerLogo = styled.div`
 export const CheckBlock = styled.div`
   margin: 5px 0;
 `;
+
+export const Main = styled.main`
+    background-color: #f5f5f6;
+    height: 100%;
+`;
