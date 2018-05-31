@@ -11,17 +11,30 @@ import {
 } from "./styled";
 
 export default class LoginMain extends React.Component {
+  state = {
+    isAuth: true
+  };
+
+  handleAuth = (isAuth) => { this.setState({ isAuth }) };
+
   render() {
+    const { isAuth } = this.state;
+
     return (
       <React.Fragment>
         <WrapperLogo>
           <ContainerLogo>
             <Logo/>
-            <AuthForm/>
-            <Reg/>
+            <AuthForm
+              isAuth={isAuth}
+            />
+            <Reg
+              isAuth={isAuth}
+              handleAuth={this.handleAuth}
+            />
           </ContainerLogo>
         </WrapperLogo>
-        <Particles params={particlesConfig} height="100vh" />
+        <Particles params={particlesConfig} />
       </React.Fragment>
     )
   }

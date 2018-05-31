@@ -2,22 +2,24 @@ import React from 'react';
 import { ContainerForm, WrapperForm } from "../AuthForm/styled";
 import { CheckBlock } from "../styled";
 
-export default class LoginMain extends React.Component {
+export default class Registration extends React.Component {
   handleLogin = (e) => {
     e.preventDefault();
-    console.log('login');
+
+    this.props.handleAuth(true);
   };
 
   handleRegistration = (e) => {
     e.preventDefault();
-    console.log('registration');
+
+    this.props.handleAuth(false);
   };
 
   render() {
-    const isLogin = true;
+    const { isAuth: isLogin } = this.props;
     let contentCheck = null;
 
-    if (isLogin) {
+    if (!isLogin) {
       contentCheck = (
         <CheckBlock>
           Уже зарегистрированы?{' '}

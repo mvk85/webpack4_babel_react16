@@ -9,7 +9,7 @@ import {
   InputField,
   Button
 } from "./styled";
-import { loginRequest } from '../../../actions/auth';
+import { loginRequest, registrationRequest } from '../../../actions/auth';
 
 export class AuthForm extends React.Component {
   state = {
@@ -17,7 +17,7 @@ export class AuthForm extends React.Component {
     password: null
   };
 
-  handleClickBtn = (e) => {
+  handleAuth = (e) => {
     e.preventDefault();
     const { login, password } = this.state;
     const { loginRequest } = this.props;
@@ -27,11 +27,23 @@ export class AuthForm extends React.Component {
     }
   };
 
+  handleReg = (e) => {
+    e.preventDefault();
+    const { login, password } = this.state;
+    const { registrationRequest } = this.props;
+
+    if (login && password) {
+      registrationRequest({ email: login, password });
+    }
+  };
+
   handleChangeInput = ({ target: { value, name }}) => {
     this.setState({ [name]: value });
   };
 
   render() {
+    const { isAuth } = this.props;
+
     return (
       <WrapperForm>
         <ContainerForm>
@@ -53,7 +65,8 @@ export class AuthForm extends React.Component {
               onChange={this.handleChangeInput}
             />
           </ContainerInput>
-          <Button onClick={this.handleClickBtn}>Войти</Button>
+          {isAuth && <Button onClick={this.handleAuth}>Войти</Button>}
+          {!isAuth && <Button onClick={this.handleReg}>Регистрация</Button>}
         </ContainerForm>
       </WrapperForm>
     )
@@ -63,6 +76,7 @@ export class AuthForm extends React.Component {
 export default connect(
   null,
   {
-    loginRequest
+    loginRequest,
+    registrationRequest
   }
 )(AuthForm);
