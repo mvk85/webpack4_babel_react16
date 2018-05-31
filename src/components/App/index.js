@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
 import { Switch, Route } from 'react-router-dom';
+import PrivateRouter from '../PrivateRoute';
 import CryptoPage from '../CryptoPage';
 import {
   HeaderWrapper,
@@ -24,7 +25,7 @@ class App extends React.Component {
         <MainWrapper>
           <MainContent>
             <Switch>
-              <Route path="/crypto/:cy" component={CryptoPage} />
+              <PrivateRouter path="/crypto/:cy" component={CryptoPage} />
             </Switch>
           </MainContent>
         </MainWrapper>

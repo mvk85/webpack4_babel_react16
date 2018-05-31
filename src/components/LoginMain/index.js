@@ -14,8 +14,15 @@ import {
 import {getIsAuthorized} from "../../reducers/auth/index";
 
 export class LoginMain extends React.Component {
+  state = {
+    isAuth: true
+  };
+
+  handleAuth = (isAuth) => { this.setState({ isAuth }) };
+
   render() {
     const { isAuthorized } = this.props;
+    const { isAuth } = this.state;
 
     if (isAuthorized) {
       return <Redirect to="crypto/bit" />
@@ -26,17 +33,22 @@ export class LoginMain extends React.Component {
         <WrapperLogo>
           <ContainerLogo>
             <Logo/>
-            <AuthForm/>
-            <Reg/>
+            <AuthForm
+              isAuth={isAuth}
+            />
+            <Reg
+              isAuth={isAuth}
+              handleAuth={this.handleAuth}
+            />
           </ContainerLogo>
         </WrapperLogo>
-        <Particles params={particlesConfig} height="100vh" />
+        <Particles params={particlesConfig} />
       </Main>
     )
   }
 }
 
-mapStateToProps = state => ({
+const mapStateToProps = state => ({
   isAuthorized: getIsAuthorized(state)
 });
 

@@ -1,8 +1,15 @@
-import { call, takeLatest, put, take, select } from 'redux-saga/effects';
-import {loginRequest} from "../../actions/auth";
+import {call, takeLatest, put, take, select} from 'redux-saga/effects';
 import {getIsAuthorized} from "../../reducers/auth";
-import {clearTokenApi, getToken, setTokenApi} from "../../api/request";
-import {loginFailure, loginSuccess, logout, registrationSuccess} from "../../actions/auth/index";
+import {clearTokenApi, getToken, setTokenApi, registration} from "../../api/request";
+import {
+  loginRequest,
+  registrationFailure,
+  registrationRequest,
+  loginFailure,
+  loginSuccess,
+  logout,
+  registrationSuccess
+} from "../../actions/auth/index";
 import {getTokenFromLocalStorage, removeTokenFromLocalStorage, setTokenToLocalStorage} from "../../api/localStorage";
 
 export function* authFlow() {
@@ -41,6 +48,22 @@ export function* authUserWorker(action) {
   }
 }
 
+function* registrationFlow(action) {
+  try {
+    console.log('registrationFlow action = ', action);
+    const result = yield call(registration, action.payload);
+    yield put(registrationSuccess(result.data.jwt));
+  } catch (error) {
+    const errorMessage = Object.keys(error.data.message).map(key => `${key}: ${error.data.message[key]}`).join(', ');
+    yield put(registrationFailure(errorMessage));
+  }
+}
+
 export function* authUserWatcher() {
   yield takeLatest(loginRequest, authUserWorker);
 }
+
+export function* registrationRequestWatch() {
+  yield takeLatest(registrationRequest, registrationFlow);
+}
+

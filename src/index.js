@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import 'babel-polyfill'; // не удалять, нужен для нормальной работы
 import App from './components/App';
+import RootRouter from './components/RootRouter';
 import createStore from './store';
 
 const store = createStore();
@@ -11,7 +12,7 @@ const store = createStore();
 const Application = (
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <RootRouter />
     </Provider>
   </BrowserRouter>
 );
