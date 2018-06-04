@@ -8,8 +8,8 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'app-[hash].js'
-    // publicPath: 'dist/'
+    filename: 'app-[hash].js',
+    publicPath: '/'
   },
   module: {    
     rules: [

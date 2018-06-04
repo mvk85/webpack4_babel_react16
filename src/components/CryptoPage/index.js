@@ -1,9 +1,21 @@
 import React, { Fragment } from 'react';
+import {
+  BodyPage,
+  SiteBar,
+  RightSection
+} from './styled';
 
 class CryptoPage extends React.PureComponent {
   render() {
     return (
-      <div>Crypto page</div>
+      <BodyPage>
+        <SiteBar>
+          Sitebar
+        </SiteBar>
+        <RightSection>
+          RightSection
+        </RightSection>
+      </BodyPage>
     )
   }
 }
