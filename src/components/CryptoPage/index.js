@@ -16,13 +16,13 @@ class CryptoPage extends React.PureComponent {
             Sitebar
           </SiteBar>
           <RightSection>
-            <Chart
+            {/*<Chart
               data={[{name: 'Продажа', data: sellBtc}, {name: 'Покупка', data: purchaseBtc}]}
               min={minBtc}
               max={maxBtc}
               width={750}
               height={400}
-            />
+            />*/}
             RightSection
           </RightSection>
         </Container>

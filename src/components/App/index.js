@@ -20,7 +20,7 @@ class App extends React.Component {
         <MainWrapper>
           <MainContent>
             <Switch>
-              <Route path="/crypto/:cy" component={CryptoPage} />
+              <PrivateRouter path="/crypto/:cy" component={CryptoPage} />
             </Switch>
           </MainContent>
         </MainWrapper>

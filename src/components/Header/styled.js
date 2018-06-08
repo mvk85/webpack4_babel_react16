@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {blueColor} from "../../api/const";
 
 const FlexWidth = styled.div`
   display: flex;
@@ -28,4 +29,9 @@ export const LeftHeader = styled.div`
   img {
     width: 180px;
   }
+`;
+
+export const TextBlue = styled.div`
+  color: ${blueColor};
+  font-size: 18px;
 `;
