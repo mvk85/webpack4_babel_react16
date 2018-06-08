@@ -18,6 +18,8 @@ export function* authFlow() {
     const localStorageToken = yield call(getTokenFromLocalStorage);
     let token;
 
+    console.log('authFlow, isAuth = ', isAuthorized, 'LS = ', localStorageToken);
+
     if (!isAuthorized) {
       if (localStorageToken) {
         token = localStorageToken;
@@ -26,6 +28,8 @@ export function* authFlow() {
         token = action.payload;
       }
     }
+
+    console.log('authFlow, token = ', token);
 
     yield call(setTokenApi, token);
     yield call(setTokenToLocalStorage, token);

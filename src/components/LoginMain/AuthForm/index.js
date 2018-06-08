@@ -41,11 +41,24 @@ export class AuthForm extends React.Component {
     this.setState({ [name]: value });
   };
 
+  handleKeyPress = (e) => {
+    const isEnter = e.key === 'Enter';
+    const isAuth = this.props.isAuth;
+
+    if (isEnter) {
+      if (isAuth) {
+        this.handleAuth(e);
+      } else {
+        this.handleReg(e);
+      }
+    }
+  };
+
   render() {
     const { isAuth } = this.props;
 
     return (
-      <WrapperForm>
+      <WrapperForm onKeyPress={this.handleKeyPress}>
         <ContainerForm>
           <ContainerInput>
             <FaUser/>

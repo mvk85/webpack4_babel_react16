@@ -25,7 +25,7 @@ class App extends React.Component {
         <MainWrapper>
           <MainContent>
             <Switch>
-              <PrivateRouter path="/crypto/:cy" component={CryptoPage} />
+              <Route path="/crypto/:cy" component={CryptoPage} />
             </Switch>
           </MainContent>
         </MainWrapper>
@@ -37,4 +37,5 @@ class App extends React.Component {
   }
 }
 
-export default hot(module)(App);
+// export default hot(module)(App);
+export default App;

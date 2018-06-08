@@ -10,7 +10,7 @@ import {
   WrapperLogo,
   ContainerLogo,
   Main
-} from "./styled";
+} from './styled';
 import {getIsAuthorized} from "../../reducers/auth/index";
 
 export class LoginMain extends React.Component {
