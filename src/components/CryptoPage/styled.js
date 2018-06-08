@@ -12,4 +12,6 @@ export const SiteBar = styled.div`
 export const RightSection = styled.div`
   
 `;
-
+export const Container = styled.div`
+  width: 750px;
+`;
