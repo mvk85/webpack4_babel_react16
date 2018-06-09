@@ -34,4 +34,22 @@ export const LeftHeader = styled.div`
 export const TextBlue = styled.div`
   color: ${blueColor};
   font-size: 18px;
+  padding-left: 50px;
+  line-height: 80px;
 `;
+
+export const TabCurrency = styled.div`
+  background-color: #404243;
+  color: #fff;
+  margin-left: 20px;  
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  span {
+    display: block;
+    font-weight: 700;
+  }
+`
+export const BodyCurrency = styled.div`
+  padding-top: 25px;
+`

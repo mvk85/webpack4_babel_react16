@@ -45,6 +45,7 @@ export const Row = styled.div`
   max-width: 100%;
   width: 100%;
   position: relative;
+  align-items: center;
 `;
 
 const Col = (column) => styled.div`
@@ -52,6 +53,7 @@ const Col = (column) => styled.div`
   max-width: ${(oneColPer*column).toFixed(6)}%;
   position: relative;
   min-height: 1px;
+  display: ${props => props.isFlex ? 'flex' : 'block'};
 `;
 
 export const Col1 = Col(1);

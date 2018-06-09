@@ -4,7 +4,9 @@ import {
   HeaderWrapper,
   HeaderContent,
   LeftHeader,
-  TextBlue
+  TextBlue,
+  TabCurrency,
+  BodyCurrency
 } from "./styled";
 import { Row, Col4, Col3, Col5 } from "../App/styled";
 import logo from '../../images/logo-bl.svg';
@@ -18,14 +20,23 @@ export class Header extends React.Component {
       <HeaderWrapper>
         <HeaderContent>
           <Row>
-            <Col4>
+            <Col4 isFlex={true}>
               <LeftHeader>
                 <img src={logo} alt="logo" />
               </LeftHeader>
               <TextBlue>Торги</TextBlue>
             </Col4>
-            <Col3>
-              Center
+            <Col3 isFlex={true}>
+              <TabCurrency>
+                <BodyCurrency>
+                  44444 <span>1 BTC</span>
+                </BodyCurrency>
+              </TabCurrency>
+              <TabCurrency>
+                <BodyCurrency>
+                  5555 <span>1 ETH</span>
+                </BodyCurrency>
+              </TabCurrency>
             </Col3>
             <Col5>
               Right
