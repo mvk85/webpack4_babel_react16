@@ -26,9 +26,9 @@ class App extends React.Component {
         </MainWrapper>
         <Footer />
       </Fragment>
-    )
+    );
   }
 }
 
 // export default hot(module)(App);
-export default App;
+export default hot(module)(App);

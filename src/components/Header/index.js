@@ -6,9 +6,13 @@ import {
   LeftHeader,
   TextBlue,
   TabCurrency,
-  BodyCurrency
+  BodyCurrency,
+  InfoContainer
 } from "./styled";
 import { Row, Col4, Col3, Col5 } from "../App/styled";
+import NewsFeed from './NewsFeed';
+import Info from './Info';
+import UserSelectInfo from './UserSelectInfo';
 import logo from '../../images/logo-bl.svg';
 import {getIsAuthorized} from "../../reducers/auth/index";
 
@@ -20,13 +24,13 @@ export class Header extends React.Component {
       <HeaderWrapper>
         <HeaderContent>
           <Row>
-            <Col4 isFlex={true}>
+            <Col4>
               <LeftHeader>
                 <img src={logo} alt="logo" />
               </LeftHeader>
               <TextBlue>Торги</TextBlue>
             </Col4>
-            <Col3 isFlex={true}>
+            <Col3>
               <TabCurrency>
                 <BodyCurrency>
                   44444 <span>1 BTC</span>
@@ -38,8 +42,12 @@ export class Header extends React.Component {
                 </BodyCurrency>
               </TabCurrency>
             </Col3>
-            <Col5>
-              Right
+            <Col5 >
+              <InfoContainer>
+                <NewsFeed/>
+                <Info/>
+                <UserSelectInfo/>
+              </InfoContainer>
             </Col5>
           </Row>
         </HeaderContent>

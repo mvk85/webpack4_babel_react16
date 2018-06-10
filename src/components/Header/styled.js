@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 import {blueColor} from "../../api/const";
 
+export const InfoContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+`;
+
+export const LabelInfo = styled.div`
+  border-color: #555658;
+  border-radius: 18px;
+  background-color: #555658;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  padding: 5px 20px;
+`;
+
 const FlexWidth = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,12 +60,15 @@ export const TabCurrency = styled.div`
   margin-left: 20px;  
   width: 100%;
   height: 80px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
   span {
     display: block;
     font-weight: 700;
   }
 `
 export const BodyCurrency = styled.div`
-  padding-top: 25px;
-`
+  text-align: center;
+`;

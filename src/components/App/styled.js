@@ -9,7 +9,7 @@ const FlexWidth = styled.div`
   align-items: center;
 `;
 
-const ContentBlock = styled.div`
+export const ContentBlock = styled.div`
   width: ${WIDTH_CONTAINER}px;
 `;
 
@@ -53,7 +53,7 @@ const Col = (column) => styled.div`
   max-width: ${(oneColPer*column).toFixed(6)}%;
   position: relative;
   min-height: 1px;
-  display: ${props => props.isFlex ? 'flex' : 'block'};
+  display: ${props => props.isBlock ? 'block' : 'flex'};
 `;
 
 export const Col1 = Col(1);
