@@ -13,8 +13,8 @@ import { Row, Col4, Col3, Col5 } from "../App/styled";
 import NewsFeed from './NewsFeed';
 import Info from './Info';
 import UserSelectInfo from './UserSelectInfo';
-import logo from '../../images/logo-bl.svg';
 import {getIsAuthorized} from "../../reducers/auth/index";
+import Logo from '../commons/Logo';
 
 export class Header extends React.Component {
   state = {};
@@ -25,9 +25,7 @@ export class Header extends React.Component {
         <HeaderContent>
           <Row>
             <Col4>
-              <LeftHeader>
-                <img src={logo} alt="logo" />
-              </LeftHeader>
+              <Logo />
               <TextBlue>Торги</TextBlue>
             </Col4>
             <Col3>

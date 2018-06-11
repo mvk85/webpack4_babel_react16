@@ -13,6 +13,10 @@ export const ContentBlock = styled.div`
   width: ${WIDTH_CONTAINER}px;
 `;
 
+export const FooterBlock = ContentBlock.extend`
+  height: 100%;
+`;
+
 export const MainWrapper = FlexWidth.withComponent('main').extend`
   min-height: calc(100% - 80px);
   margin-bottom: -100px;
@@ -46,6 +50,7 @@ export const Row = styled.div`
   width: 100%;
   position: relative;
   align-items: center;
+  height: ${props => props.height ? props.height : 'inherit'}
 `;
 
 const Col = (column) => styled.div`
@@ -70,3 +75,25 @@ export const Col11 = Col(11);
 export const Col12 = Col(12);
 
 
+export const Buttom = styled.button`
+  font-size: 11px;
+  color: #fff;
+  text-align: center;
+  background-color: gray;
+  min-width: 70px;
+  padding: 3px;  
+  border-radius: 4px;
+  border-color: gray;
+`;
+export const ButtomSuccess = Buttom.extend`
+  background-color: green;
+  border-color: green;
+`;
+export const ButtomInfo = Buttom.extend`
+  background-color: blue;
+  border-color: blue;
+`;
+export const ButtomCaution = Buttom.extend`
+  background-color: red;
+  border-color: red;
+`;

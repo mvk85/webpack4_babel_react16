@@ -41,11 +41,6 @@ export const HeaderContent = ContentBlock.extend`
   height: 100px;
 `;
 
-export const LeftHeader = styled.div`
-  img {
-    width: 180px;
-  }
-`;
 
 export const TextBlue = styled.div`
   color: ${blueColor};
