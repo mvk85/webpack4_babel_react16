@@ -5,23 +5,22 @@ export const BlockWallet = styled.div`
   
 `;
 export const ItemWallet = styled.div`
-  span {
-    
-  }
 `;
 export const ItemWalletInput = styled.span`
-width: 150px;
-background-color: #404243;
-text-align: center;
-padding-right: 15px;
-color: #fff;
-display: inline-block;
-padding: 5px;
-font-size: 12px;
-border-radius: 4px;
-margin-right: 15px;
-margin-bottom: 10px;
-
+  width: 225px;
+  background-color: #404243;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  padding: 9px 15px 9px 9px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  color: #8a8a8a;
+  b{
+    color: #fff;
+  }
 `;
 
 class Wallet extends React.PureComponent {

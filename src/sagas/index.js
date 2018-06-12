@@ -1,10 +1,9 @@
-import { all, fork } from 'redux-saga/effects';
-import { authUserWatcher, authFlow, registrationRequestWatch } from './auth/index';
+import { all } from 'redux-saga/effects';
+// import { authUserWatcher, authFlow, registrationRequestWatch } from './auth/index';
+import auth from './auth';
 
 export default function* () {
   yield all([
-    fork(authUserWatcher),
-    fork(authFlow),
-    fork(registrationRequestWatch)
+    ...auth
   ]);
 }

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { blueColor, redColor} from "../../api/const";
 
 const WIDTH_CONTAINER = 1200;
 const oneColPer = 100/12;
@@ -76,24 +77,25 @@ export const Col12 = Col(12);
 
 
 export const Buttom = styled.button`
-  font-size: 11px;
+  font-size: 12px;
   color: #fff;
   text-align: center;
   background-color: gray;
-  min-width: 70px;
-  padding: 3px;  
+  min-width: 93px;
+  padding: 8px;  
   border-radius: 4px;
   border-color: gray;
+  border-width: 0;
 `;
 export const ButtomSuccess = Buttom.extend`
   background-color: green;
   border-color: green;
 `;
 export const ButtomInfo = Buttom.extend`
-  background-color: blue;
-  border-color: blue;
+  background-color: ${blueColor};
+  border-color: ${blueColor};
 `;
 export const ButtomCaution = Buttom.extend`
-  background-color: red;
-  border-color: red;
+  background-color: ${redColor};
+  border-color: ${redColor};
 `;

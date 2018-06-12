@@ -1,4 +1,4 @@
-import {call, takeLatest, put, take, select} from 'redux-saga/effects';
+import {call, takeLatest, put, take, select, fork} from 'redux-saga/effects';
 import {getIsAuthorized} from "../../reducers/auth";
 import {clearTokenApi, getToken, setTokenApi, registration} from "../../api/request";
 import {
@@ -71,3 +71,8 @@ export function* registrationRequestWatch() {
   yield takeLatest(registrationRequest, registrationFlow);
 }
 
+export default [
+  fork(authUserWatcher),
+  fork(authFlow),
+  fork(registrationRequestWatch)
+];
