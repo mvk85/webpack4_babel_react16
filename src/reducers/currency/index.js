@@ -31,7 +31,7 @@ const eth = handleActions({
 export const getOffset = state => state.currency.offset;
 
 export default combineReducers({
-  offset,
+  offset,git
   btc,
   eth,
   selected
