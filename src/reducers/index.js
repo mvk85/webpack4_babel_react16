@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import auth from './auth'
+import auth from './auth';
+import currency from './currency';
 
 export default combineReducers({
-  auth
+  auth,
+  currency
 })

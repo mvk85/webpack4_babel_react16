@@ -20,9 +20,7 @@ class CryptoPage extends React.PureComponent {
           <Col8>
             <Row>
               <Col12>
-                <RightSection>
-                  <Chart/>
-                </RightSection>
+                <Chart/>
               </Col12>
               <Col12>
                 <History/>

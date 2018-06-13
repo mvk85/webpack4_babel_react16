@@ -1,25 +1,15 @@
 import React from 'react';
 // import {LineChart} from 'react-chartkick';
 import {LineChart} from 'react-easy-chart';
+import OffsetPanel from './OffsetPanel';
 import moment from 'moment';
-// import {Container} from '../styled';
-//
-// const offsets = {
-//   '2h': '2ч',
-//   '4h': '4ч',
-//   '8h': '8ч',
-//   '1d': '1д',
-//   '7d': '7д',
-// };
 
-/*
-  Для получения данных о стоимости валют надо запусить регулярное получение данных,
-  а также их получение каждые 15 сек. Реализовать в сагах в currency
-*/
 class Chart extends React.Component {
   render() {
     return (
       <div>
+        <h3>Окно графика</h3>
+        <OffsetPanel/>
         <LineChart
           lineColors={['blue', 'red']}
           axes
