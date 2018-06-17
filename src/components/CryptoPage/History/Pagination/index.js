@@ -4,15 +4,7 @@ import React from 'react';
 
 class Pagination extends React.PureComponent {
   render() {
-    return (
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        Pagination
-      </div>
-    );
+    return null;
   }
 }
 

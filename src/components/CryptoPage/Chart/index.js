@@ -1,53 +1,102 @@
 import React from 'react';
-// import {LineChart} from 'react-chartkick';
-import {LineChart} from 'react-easy-chart';
+// import Spinner from 'react-svg-spinner';
+import { connect } from 'react-redux';
+// import {LineChart} from 'react-easy-chart';
+import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 import OffsetPanel from './OffsetPanel';
-import moment from 'moment';
+import LineChart from './LineChart';
+import { selectOffset } from '../../../actions/currency';
+import {
+  getOffset,
+  getPurchaseBtc,
+  getSellBtc,
+  getIsBtcLoading,
+  getIsEthLoading, getSellEth, getPurchaseEth
+} from "../../../reducers/currency/index";
+
+export const WrapperChart = styled.div`
+  width: 100%;
+`;
+export const WrapperLineChart = styled.div`
+  width: 100%;  
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+`;
 
 class Chart extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currency: this.props.match.params.currency // 'btc'
+    };
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    const currency = props.match.params.currency;
+
+    if (props.match.params.currency !== state.currency) {
+      return { currency };
+    }
+
+    return null;
+  }
+
   render() {
+    const {
+      sellBtc,
+      purchaseBtc,
+      offset,
+      selectOffset,
+      sellEth,
+      purchaseEth,
+      isBtcLoading,
+      isEthLoading
+    } = this.props;
+    const { currency } = this.state;
+    const isLoading = isBtcLoading || isEthLoading || false;
+    let data;
+
+    if (currency === 'btc') {
+      data = [
+        sellBtc,
+        purchaseBtc
+      ];
+    } else {
+      data = [
+        sellEth,
+        purchaseEth
+      ];
+    }
+
     return (
-      <div>
+      <WrapperChart>
         <h3>Окно графика</h3>
-        <OffsetPanel/>
-        <LineChart
-          lineColors={['blue', 'red']}
-          axes
-          grid
-          verticalGrid
-          interpolate={'cardinal'}
-          xType={'time'}
-          // datePattern={'%d-%m %H:%M'}
-          width={750}
-          height={400}
-          style={{
-            '.axis path': {
-              stroke: '#EDF0F1',
-            },
-          }}
-          // data={[
-          //   sell.map(([date, value]) => ({x: moment(date).format('DD-MM HH:mm'), y: value})),
-          //   purchase.map(([date, value]) => ({x: moment(date).format('DD-MM HH:mm'), y: value})),
-          // ]}
-          data={[
-            [
-              { x: '1-Jan-15', y: 20 },
-              { x: '1-Feb-15', y: 10 },
-              { x: '1-Mar-15', y: 33 },
-              { x: '1-Apr-15', y: 45 },
-              { x: '1-May-15', y: 15 }
-            ], [
-              { x: '1-Jan-15', y: 10 },
-              { x: '1-Feb-15', y: 15 },
-              { x: '1-Mar-15', y: 13 },
-              { x: '1-Apr-15', y: 15 },
-              { x: '1-May-15', y: 10 }
-            ]
-          ]}
-        />
-      </div>
+        <OffsetPanel offset={offset} selectOffset={selectOffset} />
+        <WrapperLineChart>
+          <LineChart data={data} isLoading={isLoading} />
+        </WrapperLineChart>
+      </WrapperChart>
     );
   }
 }
 
-export default Chart;
+const mapStateToProps = state => ({
+  sellBtc: getSellBtc(state),
+  purchaseBtc: getPurchaseBtc(state),
+  sellEth: getSellEth(state),
+  purchaseEth: getPurchaseEth(state),
+  offset: getOffset(state),
+  isBtcLoading: getIsBtcLoading(state),
+  isEthLoading: getIsEthLoading(state)
+});
+
+const mapDispatchToProps = {
+  selectOffset
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Chart));

@@ -50,20 +50,32 @@ export const TextBlue = styled.div`
 `;
 
 export const TabCurrency = styled.div`
-  background-color: #404243;
-  color: #fff;
-  margin-left: 20px;  
   width: 100%;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  span {
-    display: block;
-    font-weight: 700;
-  }
-`
+`;
 export const BodyCurrency = styled.div`
   text-align: center;
+`;
+export const WrapperSwitch = styled.div`
+  width: 100%;
+  display: flex;
+  a {
+    background-color: #404243;
+    color: #aaa;
+    margin-left: 20px;  
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    span {
+      display: block;
+      font-weight: 700;
+    }
+  }
 `;

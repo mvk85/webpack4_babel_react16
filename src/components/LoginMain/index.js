@@ -25,7 +25,7 @@ export class LoginMain extends React.Component {
     const { isAuth } = this.state;
 
     if (isAuthorized) {
-      return <Redirect to="crypto/bit" />
+      return <Redirect to="crypto/btc" />;
     }
 
     return (

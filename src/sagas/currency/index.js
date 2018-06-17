@@ -39,13 +39,13 @@ function* loginCurrencyFlow() {
     const offset = yield select(getOffset);
     yield put(fetchBtcRequest(offset));
     yield put(fetchEthRequest(offset));
-
     yield delay(15000);
   }
 }
 
 export function* currencyWatch() {
   let currencyTask;
+
   while (true) {
     const action = yield take([loginSuccess, logout, selectBtc, selectEth, selectOffset]);
 
@@ -53,7 +53,10 @@ export function* currencyWatch() {
       yield cancel(currencyTask);
       currencyTask = undefined;
     }
-    if (action.type !== logout.toString()) currencyTask = yield fork(loginCurrencyFlow);
+
+    if (action.type !== logout.toString()){
+      currencyTask = yield fork(loginCurrencyFlow);
+    }
   }
 }
 
@@ -83,4 +86,4 @@ export default [
   fork(fetchBtcWatch),
   fork(fetchEthWatch),
   fork(currencyWatch)
-]
+];

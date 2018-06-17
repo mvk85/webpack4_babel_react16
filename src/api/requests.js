@@ -37,3 +37,5 @@ export const setTokenApi = access_token => {
 export const clearTokenApi = () => {
   instance.defaults.headers.common['Authorization'] = undefined;
 };
+
+export const getUserTransactions = () => instance.get('/transactions?limit=25');

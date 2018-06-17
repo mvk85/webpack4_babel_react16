@@ -1,5 +1,5 @@
 import React from 'react';
-import TableHistory from './TableHistory';
+import Transactions from './Transactions';
 import Pagination from './Pagination';
 import styled from 'styled-components';
 
@@ -12,8 +12,8 @@ class History extends React.PureComponent {
     return (
       <ContainerHistory>
         <h3>История операций</h3>
-        <TableHistory/>
-        <Pagination/>
+        <Transactions />
+        <Pagination />
       </ContainerHistory>
     );
   }
