@@ -49,7 +49,7 @@ export class Header extends React.Component {
     return (
       <HeaderWrapper>
         <HeaderContent>
-          <Row>
+          <Row align='center'>
             <Col4>
               <Logo />
               <TextBlue>Торги</TextBlue>

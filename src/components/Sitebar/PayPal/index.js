@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import { ButtomInfo, ButtomCaution } from '../../App/styled';
+import {
+  getCurrentBtcPurchase, getCurrentBtcSell, getCurrentEthPurchase,
+  getCurrentEthSell
+} from "../../../reducers/currency/index";
+import {
+  buyCurrencyRequest,
+  sellCurrencyRequest,
+} from '../../../actions/currency';
 
 export const BlockPayPal = styled.div`
   padding-top: 35px;
@@ -35,6 +44,16 @@ export const DesPayPal = styled.span`
 
 class PayPal extends React.PureComponent {
   render() {
+    const {
+      buyCurrencyRequest,
+      sellCurrencyRequest,
+      currencyName,
+      currentBtcPurchase,
+      currentBtcSell,
+      currentEthPurchase,
+      currentEthSell
+    } = this.props;
+
     return (
       <BlockPayPal>
         <h3>Покупка/продажа</h3>
@@ -67,4 +86,16 @@ class PayPal extends React.PureComponent {
   }
 }
 
-export default PayPal;
+const mapStateToProps = state => ({
+  currentBtcPurchase: getCurrentBtcPurchase(state),
+  currentBtcSell: getCurrentBtcSell(state),
+  currentEthPurchase: getCurrentEthPurchase(state),
+  currentEthSell: getCurrentEthSell(state)
+});
+
+const mapDispatchToProps = {
+  buyCurrencyRequest,
+  sellCurrencyRequest
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PayPal);

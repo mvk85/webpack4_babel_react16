@@ -11,14 +11,13 @@ import {
   registrationSuccess
 } from "../../actions/auth/index";
 import {getTokenFromLocalStorage, removeTokenFromLocalStorage, setTokenToLocalStorage} from "../../api/localStorage";
+import {fetchWalletRequest} from "../../actions/wallet";
 
 export function* authFlow() {
   while (true) {
     const isAuthorized = yield select(getIsAuthorized);
     const localStorageToken = yield call(getTokenFromLocalStorage);
     let token;
-
-    console.log('authFlow, isAuth = ', isAuthorized, 'LS = ', localStorageToken);
 
     if (!isAuthorized) {
       if (localStorageToken) {
@@ -29,11 +28,11 @@ export function* authFlow() {
       }
     }
 
-    console.log('authFlow, token = ', token);
-
     yield call(setTokenApi, token);
     yield call(setTokenToLocalStorage, token);
     yield put(loginSuccess());
+    yield put(fetchWalletRequest());
+
     yield take(logout);
     yield call(removeTokenFromLocalStorage);
     yield call(clearTokenApi);
@@ -45,16 +44,13 @@ export function* authUserWorker(action) {
     const responseLogin = yield call(getToken, action.payload);
     const token = responseLogin.data.jwt;
     yield put(loginSuccess(token));
-    console.log('token =  ', token);
   } catch (error) {
     yield put(loginFailure(error.data.message));
-    console.error('authUserWorker: ', error);
   }
 }
 
 function* registrationFlow(action) {
   try {
-    console.log('registrationFlow action = ', action);
     const result = yield call(registration, action.payload);
     yield put(registrationSuccess(result.data.jwt));
   } catch (error) {

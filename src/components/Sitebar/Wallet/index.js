@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import Spinner from 'react-svg-spinner';
+import {getIsLoading} from "../../../reducers/wallet";
+import {getWallet} from "../../../reducers/wallet/index";
+import {getChunkNumber} from "../../../api/functions";
 
-export const BlockWallet = styled.div`
-  
+export const BlockWallet = styled.div`  
 `;
 export const ItemWallet = styled.div`
 `;
@@ -10,7 +14,6 @@ export const ItemWalletInput = styled.span`
   width: 225px;
   background-color: #404243;
   text-align: center;
-  color: #fff;
   display: inline-block;
   padding: 9px 15px 9px 9px;
   font-size: 14px;
@@ -25,24 +28,35 @@ export const ItemWalletInput = styled.span`
 
 class Wallet extends React.PureComponent {
   render() {
+    const {
+      wallet: { usd, btc, eth },
+      isLoading
+    } = this.props;
+
+    const mapWallet = [
+      { title: 'ETH', chunk: getChunkNumber(eth) },
+      { title: 'BTC', chunk: getChunkNumber(btc) },
+      { title: '$', chunk: getChunkNumber(usd) }
+    ];
+
     return (
       <BlockWallet>
         <h3>Ваш счёт</h3>
-        <ItemWallet>
-          <ItemWalletInput><b>123</b>.00123</ItemWalletInput>
-          <span>ETH</span>
-        </ItemWallet>
-        <ItemWallet>
-          <ItemWalletInput><b>123</b>.00123</ItemWalletInput>
-          <span>BTC</span>
-        </ItemWallet>
-        <ItemWallet>
-          <ItemWalletInput><b>123</b>.00123</ItemWalletInput>
-          <span>$</span>
-        </ItemWallet>
+        {isLoading && <Spinner  size="32px" />}
+        {!isLoading && mapWallet.map(({title, chunk}, index) => (
+          <ItemWallet key={index}>
+            <ItemWalletInput><b>{chunk[0]}</b>{chunk[1] ? '.' + chunk[1] : ''}</ItemWalletInput>
+            <span>{title}</span>
+          </ItemWallet>
+        ))}
       </BlockWallet>       
     );
   }
 }
 
-export default Wallet;
+const mapStateToProps = state => ({
+  wallet: getWallet(state),
+  isLoading: getIsLoading(state)
+});
+
+export default connect(mapStateToProps)(Wallet);

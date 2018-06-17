@@ -50,7 +50,7 @@ export const Row = styled.div`
   max-width: 100%;
   width: 100%;
   position: relative;
-  align-items: center;
+  align-items: ${props => props.align ? props.align : 'start'};
   height: ${props => props.height ? props.height : 'inherit'}
 `;
 

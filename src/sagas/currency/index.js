@@ -13,8 +13,7 @@ import {
   fetchEthSuccess,
   selectOffset,
 } from '../../actions/currency';
-import {candles, getWallet} from '../../api/requests';
-import {fetchWalletRequest, fetchWalletSuccess, fetchWalletFailure} from '../../actions/wallet';
+import {candles} from '../../api/requests';
 
 function* fetchBtcFlow(action) {
   try {
@@ -60,19 +59,6 @@ export function* currencyWatch() {
   }
 }
 
-function* fetchWalletFlow() {
-  try {
-    const response = yield call(getWallet);
-    yield put(fetchWalletSuccess(response.data.result));
-  } catch (error) {
-    yield put(fetchWalletFailure(error));
-  }
-}
-
-export function* fetchWalletWatch() {
-  yield takeLatest(fetchWalletRequest, fetchWalletFlow);
-}
-
 export function* fetchBtcWatch() {
   yield takeLatest(fetchBtcRequest, fetchBtcFlow);
 }
@@ -82,7 +68,6 @@ export function* fetchEthWatch() {
 }
 
 export default [
-  fork(fetchWalletWatch),
   fork(fetchBtcWatch),
   fork(fetchEthWatch),
   fork(currencyWatch)

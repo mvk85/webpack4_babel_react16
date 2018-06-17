@@ -22,7 +22,7 @@ export class Footer extends React.Component {
     return (
       <FooterBody>
         <FooterBlock>
-          <Row height='100%'>
+          <Row height='100%' align='center'>
             <Col4>
               <Copyright />
             </Col4>
