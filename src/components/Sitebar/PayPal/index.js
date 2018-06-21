@@ -1,11 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { ButtomInfo, ButtomCaution } from '../../App/styled';
 import {
   getCurrentBtcPurchase, getCurrentBtcSell, getCurrentEthPurchase,
-  getCurrentEthSell
-} from "../../../reducers/currency/index";
+  getCurrentEthSell, getSelectedCurrency
+} from '../../../reducers/currency/index';
 import {
   buyCurrencyRequest,
   sellCurrencyRequest,
@@ -48,7 +48,7 @@ const setPurchase = (sell, purchase) => ({inputPurchase}) => {
   };
 };
 
-class PayPal extends React.PureComponent {
+class PayPal extends React.Component {
   state = {
     currencyName: '',
     inputFiat: 1,
@@ -65,10 +65,11 @@ class PayPal extends React.PureComponent {
       currentBtcPurchase,
       currentBtcSell,
       currentEthPurchase,
-      currentEthSell
+      currentEthSell,
+      selectedCurrency
     } = nextProps;
     const { currentInput } = prevState;
-    const currencyName = location.pathname.includes('btc') ? 'btc' : 'eth';
+    const currencyName = selectedCurrency;
     const sell = currencyName === 'btc' ? currentBtcSell : currentEthSell;
     const purchase = currencyName === 'btc' ? currentBtcPurchase : currentEthPurchase;
     let newState;
@@ -101,8 +102,6 @@ class PayPal extends React.PureComponent {
   handleChange = event => {
     const {name, value} = event.target;
     const {sell, purchase} = this.state;
-
-    console.log('handleChange: ', name, value, sell, purchase);
 
     this.setState({[name]: value});
     if (isNaN(value) || value === '') {
@@ -191,7 +190,8 @@ const mapStateToProps = state => ({
   currentBtcPurchase: getCurrentBtcPurchase(state),
   currentBtcSell: getCurrentBtcSell(state),
   currentEthPurchase: getCurrentEthPurchase(state),
-  currentEthSell: getCurrentEthSell(state)
+  currentEthSell: getCurrentEthSell(state),
+  selectedCurrency: getSelectedCurrency(state)
 });
 
 const mapDispatchToProps = {

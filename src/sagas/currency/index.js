@@ -36,6 +36,7 @@ function* fetchEthFlow(action) {
 function* loginCurrencyFlow() {
   while (true) {
     const offset = yield select(getOffset);
+
     yield put(fetchBtcRequest(offset));
     yield put(fetchEthRequest(offset));
     yield delay(15000);

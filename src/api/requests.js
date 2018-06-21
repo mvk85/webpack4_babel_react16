@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 axios.defaults.headers.post['Accept'] = '*/*';
+
 const instance = axios.create({
   baseURL: 'http://lorem-ipsum.online/',
   headers: {Accept: '*/*'},
@@ -39,3 +40,24 @@ export const clearTokenApi = () => {
 };
 
 export const getUserTransactions = () => instance.get('/transactions?limit=25');
+
+export const buyCurrency = (currency, value) =>
+  instance
+    .get(`stock/exchange?symbol=${currency}&operation=purchase&sum=${value}`)
+    .then(response => {
+      if (response.data.result === 'error') {
+        return Promise.reject(response.data.message);
+      }
+
+      return response;
+    });
+
+export const sellCurrency = (currency, value) =>
+  instance.get(`stock/exchange?symbol=${currency}&operation=sell&sum=${value}`)
+    .then(response => {
+      if (response.data.result === 'error') {
+        return Promise.reject(response.data.message);
+      }
+
+      return response;
+  });
