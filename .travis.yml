@@ -18,5 +18,5 @@ script:
 
 deploy:
   provider: heroku
-  app: webpack4_babel_react16
+  app: webpack4-react16
   api_key: $HEROKU_KEY
