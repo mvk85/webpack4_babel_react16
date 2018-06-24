@@ -15,3 +15,8 @@ before_script:
 script:
   - npm build
   - npm test
+
+deploy:
+  provider: heroku
+  app: webpack4_babel_react16
+  api_key: $HEROKU_KEY
