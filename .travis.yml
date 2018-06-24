@@ -7,9 +7,9 @@ install:
   - npm install
 
 script:
-  - npm build
-  - npm test
-
+  - npm run test
+  - npm run build
+  
 deploy:
   provider: heroku
   app: webpack4-react16
