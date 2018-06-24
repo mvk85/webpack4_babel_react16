@@ -6,9 +6,6 @@ node_js:
 install:
   - npm install
 
-before_script:
-  - npm run start &
-
 script:
   - npm build
   - npm test
