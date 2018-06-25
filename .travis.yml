@@ -16,5 +16,6 @@ deploy:
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep-history: true
   local-dir: dist
+  repo: mvk85/mvk85.github.io/webpack4-react16
   on:
     branch: master
