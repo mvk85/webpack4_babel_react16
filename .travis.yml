@@ -11,6 +11,10 @@ script:
   - npm run build
   
 deploy:
-  provider: heroku
-  app: webpack4-react16
-  api_key: $HEROKU_KEY
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  local-dir: /webpack4-react16
+  on:
+    branch: master
