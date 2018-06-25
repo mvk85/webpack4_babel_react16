@@ -3,20 +3,17 @@ language: node_js
 node_js:
   - 8
 
+cache:
+  directories:
+    -"node_modules"
+
 install:
   - npm install
 
 script:
-  - npm run test
-  - npm run build
-  
+  - npm build
+
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep-history: true
-  local-dir: dist
-  repo: mvk85/mvk85.github.io
-  target_branch: master
-  on:
-    branch: master
+  provider: heroku
+  api_key: $HEROKU_KEY
+  app: webpack4-react16
