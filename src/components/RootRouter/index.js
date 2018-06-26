@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
-import LoginMain from '../LoginMain';
 import {withRouter, Switch, Route, Redirect} from 'react-router-dom';
+import LoginMain from '../LoginMain';
 import App from '../App';
 import PrivateRoute from '../PrivateRoute';
 
