@@ -2,6 +2,8 @@ import React from 'react';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import RootRouter from '../../../src/components/RootRouter';
 import LoginMain from '../../../src/components/LoginMain';
+import PrivateRoute from '../../../src/components/PrivateRoute';
+import App from '../../../src/components/App';
 
 jest.mock('../../../src/components/LoginMain', () => () => 'Login main');
 jest.mock('../../../src/components/App', () => () => 'App');
@@ -18,6 +20,9 @@ describe('RootRouter', () => {
     test('Switch exist', () => {
       expect(wrapper.find(Switch).exists()).toBeTruthy()
     });
+    test('PrivateRoute not exist', () => {
+      expect(wrapper.find(PrivateRoute).exists()).toBeFalsy();
+    });
     test('Router with path = "/" + exact + component = LoginMain', () => {
       const RouteComponent = wrapper.findWhere(cmpt => {
         const { component, path, exact } = cmpt.props();
@@ -33,21 +38,27 @@ describe('RootRouter', () => {
   });
 
   describe('PrivateRouter "*"', () => {
-    const wrapper = mount(
+    const wrapperMount = mount(
       <MemoryRouter initialEntries={['/currency/btn']}>
-        <RootRouter {...{isAuthorized: true }} />
+        <RootRouter />
       </MemoryRouter>
     );
 
     test('Switch exist', () => {
-      expect(wrapper.find(Switch).exists()).toBeTruthy()
+      expect(wrapperMount.find(Switch).exists()).toBeTruthy();
     });
-    // test('PrivateRouter exist', () => {
-    //   const PrivateRouter = wrapper.findWhere(cmpt => {
-    //     console.log('name = ', cmpt.name(), cmpt.debug());
-    //
-    //     return true;
-    //   })
-    // })
+    test('PrivateRoute exist', () => {
+      expect(wrapperMount.find(PrivateRoute).exists()).toBeTruthy();
+    });
+    test('PrivateRoute path="*" & pathname ==="/currency/btn"', () => {
+      const component = wrapperMount.findWhere(cmpt => (
+        cmpt.props().path ==='*'
+          && cmpt.props().location.pathname ==='/currency/btn'
+          && cmpt.props().component === App
+        )
+      );
+
+      expect(component.exists()).toBeTruthy();
+    });
   })
 });

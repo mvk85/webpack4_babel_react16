@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
-import { Switch } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Notifications from 'react-notification-system-redux';
 import PrivateRouter from '../PrivateRoute';

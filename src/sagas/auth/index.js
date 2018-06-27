@@ -49,7 +49,7 @@ export function* authUserWorker(action) {
   }
 }
 
-function* registrationFlow(action) {
+export function* registrationUserWorker(action) {
   try {
     const result = yield call(registration, action.payload);
     yield put(registrationSuccess(result.data.jwt));
@@ -64,7 +64,7 @@ export function* authUserWatcher() {
 }
 
 export function* registrationRequestWatch() {
-  yield takeLatest(registrationRequest, registrationFlow);
+  yield takeLatest(registrationRequest, registrationUserWorker);
 }
 
 export default [

@@ -11,7 +11,6 @@ class RootRouter extends PureComponent {
       <Switch>
         <Route path="/" exact component={LoginMain} />
         <PrivateRoute path="*" component={App} />
-        <Redirect to="/" />
       </Switch>
     );
   }
