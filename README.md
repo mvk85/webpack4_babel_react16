@@ -18,7 +18,7 @@ side effects) and [React-router v.4](https://github.com/ReactTraining/react-rout
 and [other libraries](https://github.com/mvk85/webpack4_babel_react16/blob/master/package.json)
 
 #### Build libraries:
-- [Webpack v.4]([React-router v.4](https://github.com/ReactTraining/react-router))
+- [Webpack v.4](https://webpack.js.org/)
 - [Babel](https://babeljs.io/)
 #### Test libraries:
 - [Jest](http://jestjs.io/)
