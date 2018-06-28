@@ -1,4 +1,4 @@
-#React 16, redux, sagas, react-router 4, webpack 4,  - example frontend application
+# React 16, redux, sagas, react-router 4, webpack 4,  - example frontend application
 
 [![Build Status](https://travis-ci.org/mvk85/webpack4_babel_react16.svg?branch=master)](https://travis-ci.org/mvk85/webpack4_babel_react16)
 
@@ -6,7 +6,7 @@ This example contains the completed environment application that combines [React
 [Redux](https://redux.js.org/), [Redux-saga](https://github.com/redux-saga/redux-saga)(library to make application
 side effects) and [React-router v.4](https://github.com/ReactTraining/react-router)
 
-##This application includes the following packages:
+## This application includes the following packages:
 
 #### Application libraries:
 - [React v.16.3](https://reactjs.org/)
