@@ -1,30 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Spinner from 'react-svg-spinner';
-import {getIsLoading} from "../../../reducers/wallet";
-import {getWallet} from "../../../reducers/wallet/index";
-import {getChunkNumber} from "../../../api/functions";
-
-export const BlockWallet = styled.div`  
-`;
-export const ItemWallet = styled.div`
-`;
-export const ItemWalletInput = styled.span`
-  width: 225px;
-  background-color: #404243;
-  text-align: center;
-  display: inline-block;
-  padding: 9px 15px 9px 9px;
-  font-size: 14px;
-  border-radius: 4px;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  color: #8a8a8a;
-  b{
-    color: #fff;
-  }
-`;
+import { getIsLoading } from "../../../reducers/wallet";
+import { getWallet } from "../../../reducers/wallet/index";
+import { getChunkNumber } from "../../../api/functions";
+import { ItemWalletInput } from './styled';
 
 class Wallet extends React.PureComponent {
   render() {
@@ -40,16 +20,16 @@ class Wallet extends React.PureComponent {
     ];
 
     return (
-      <BlockWallet>
+      <div>
         <h3>Ваш счёт</h3>
         {isLoading && <Spinner  size="32px" />}
         {!isLoading && mapWallet.map(({title, chunk}, index) => (
-          <ItemWallet key={index}>
+          <div key={index}>
             <ItemWalletInput><b>{chunk[0]}</b>{chunk[1] ? '.' + chunk[1] : ''}</ItemWalletInput>
             <span>{title}</span>
-          </ItemWallet>
+          </div>
         ))}
-      </BlockWallet>       
+      </div>
     );
   }
 }

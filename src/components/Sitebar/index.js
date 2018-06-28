@@ -1,11 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import Wallet from './Wallet';
 import PayPal from './PayPal';
-
-export const WrapperSitebar = styled.div`
-  padding-right: 30px;
-`;
+import { WrapperSitebar } from './styled';
 
 class Sitebar extends React.PureComponent {
   render() {

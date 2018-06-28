@@ -1,11 +1,7 @@
 import React from 'react';
 import Transactions from './Transactions';
 import Pagination from './Pagination';
-import styled from 'styled-components';
-
-export const ContainerHistory = styled.div`
-  width: 100%;
-`;
+import { ContainerHistory } from './styled';
 
 class History extends React.PureComponent {
   render() {
