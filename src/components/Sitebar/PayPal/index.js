@@ -61,7 +61,6 @@ class PayPal extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const {
-      location,
       currentBtcPurchase,
       currentBtcSell,
       currentEthPurchase,

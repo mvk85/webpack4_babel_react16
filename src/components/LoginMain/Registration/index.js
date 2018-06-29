@@ -1,6 +1,6 @@
 import React from 'react';
-import { ContainerForm, WrapperForm } from "../AuthForm/styled";
-import { CheckBlock } from "../styled";
+import { WrapperForm } from '../AuthForm/styled';
+import { CheckBlock } from '../styled';
 
 export default class Registration extends React.Component {
   handleLogin = (e) => {
@@ -25,20 +25,20 @@ export default class Registration extends React.Component {
           Уже зарегистрированы?{' '}
           <a href="" onClick={this.handleLogin}>Войти</a>
         </CheckBlock>
-      )
+      );
     } else {
       contentCheck = (
         <CheckBlock>
           Впервые на сайте?{' '}
           <a href="" onClick={this.handleRegistration}>Регистрация</a>
         </CheckBlock>
-      )
+      );
     }
 
     return (
       <WrapperForm>
         {contentCheck}
       </WrapperForm>
-    )
+    );
   }
 }

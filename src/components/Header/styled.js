@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {blueColor} from "../../api/const";
+import { blueColor } from '../../api/const';
 
 export const InfoContainer = styled.div`
   display: flex;

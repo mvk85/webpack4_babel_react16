@@ -1,6 +1,6 @@
 import {call, takeLatest, put, take, select, fork} from 'redux-saga/effects';
-import {getIsAuthorized} from "../../reducers/auth";
-import {clearTokenApi, getToken, setTokenApi, registration} from "../../api/requests";
+import {getIsAuthorized} from '../../reducers/auth';
+import {clearTokenApi, getToken, setTokenApi, registration} from '../../api/requests';
 import {
   loginRequest,
   registrationFailure,
@@ -9,9 +9,9 @@ import {
   loginSuccess,
   logout,
   registrationSuccess
-} from "../../actions/auth/index";
-import {getTokenFromLocalStorage, removeTokenFromLocalStorage, setTokenToLocalStorage} from "../../api/localStorage";
-import {fetchWalletRequest} from "../../actions/wallet";
+} from '../../actions/auth/index';
+import {getTokenFromLocalStorage, removeTokenFromLocalStorage, setTokenToLocalStorage} from '../../api/localStorage';
+import {fetchWalletRequest} from '../../actions/wallet';
 
 export function* authFlow() {
   while (true) {

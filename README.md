@@ -35,10 +35,12 @@ and [other libraries](https://github.com/mvk85/webpack4_babel_react16/blob/maste
 5. `npm run start` - start development mode
 6. `npm run build` - start build application for deploy on backend
 7. `npm run test` - start tests (on jest/enzyme) 
-
+8. `npm run eslint` - start global lint
 
 ## Run the example on your local machine:
 ```aidl
+git clone https://github.com/mvk85/webpack4_babel_react16
+cd webpack4_babel_react16
 npm i
 npm run start
 ```
@@ -46,9 +48,9 @@ Browser should open automatically. Otherwise, navigate to the URL reported in th
 
 
 ## Examples
-This [example](https://elated-curie-a9db44.netlify.com/) application online, deploy on [netlify](https://www.netlify.com/)  
+This [example](http://elated-curie-a9db44.netlify.com/) application online, deploy on [netlify](https://www.netlify.com/)  
 
 
 ## License
 
-This project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://github.com/mvk85/webpack4_babel_react16/LICENSE.md).

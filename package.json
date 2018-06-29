@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "test": "jest"
+    "test": "jest",
+    "eslint": "./node_modules/.bin/eslint --ext .js,.jsx ."
   },
   "repository": {
     "type": "git",
@@ -63,6 +64,7 @@
     "classnames": "^2.2.5",
     "moment": "^2.22.2",
     "postcss-loader": "^2.1.5",
+    "prop-types": "^15.6.2",
     "react-easy-chart": "^1.0.0",
     "react-notification-system": "^0.2.17",
     "react-notification-system-redux": "^1.2.0",

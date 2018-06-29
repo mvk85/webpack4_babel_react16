@@ -1,3 +1,4 @@
+/* eslint-disable no-undef,no-unused-vars */
 import React from 'react';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import RootRouter from '../../../src/components/RootRouter';
@@ -18,7 +19,7 @@ describe('RootRouter', () => {
     );
 
     test('Switch exist', () => {
-      expect(wrapper.find(Switch).exists()).toBeTruthy()
+      expect(wrapper.find(Switch).exists()).toBeTruthy();
     });
     test('PrivateRoute not exist', () => {
       expect(wrapper.find(PrivateRoute).exists()).toBeFalsy();
@@ -55,10 +56,10 @@ describe('RootRouter', () => {
         cmpt.props().path ==='*'
           && cmpt.props().location.pathname ==='/currency/btn'
           && cmpt.props().component === App
-        )
+      )
       );
 
       expect(component.exists()).toBeTruthy();
     });
-  })
+  });
 });

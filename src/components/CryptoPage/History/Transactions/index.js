@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { fetchUserTransactionsRequest } from "../../../../actions/transactions/index";
-import {getUserTransactions, userTransactionsIsLoading} from "../../../../reducers/transactions/index";
-import {getSelectedCurrency} from "../../../../reducers/currency/index";
+import { fetchUserTransactionsRequest } from '../../../../actions/transactions/index';
+import {getUserTransactions, userTransactionsIsLoading} from '../../../../reducers/transactions/index';
+import {getSelectedCurrency} from '../../../../reducers/currency/index';
 import { Th, Td, Table } from './styled';
 
 export class Transactions extends React.PureComponent {
@@ -38,7 +38,7 @@ export class Transactions extends React.PureComponent {
   };
 
   render() {
-    const {isLoading, currency } = this.props;
+    const { currency } = this.props;
 
     return (
       <Table>

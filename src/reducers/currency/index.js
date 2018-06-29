@@ -1,6 +1,6 @@
-import {combineReducers} from 'redux';
-import {handleActions} from 'redux-actions';
-import {createSelector} from 'reselect';
+import { combineReducers } from 'redux';
+import { handleActions } from 'redux-actions';
+import { createSelector } from 'reselect';
 import moment from 'moment';
 import {
   fetchBtcFailure,
@@ -9,7 +9,7 @@ import {
   fetchEthSuccess, selectBtc, selectEth,
   selectOffset
 } from '../../actions/currency';
-import {fetchBtcRequest, fetchEthRequest} from "../../actions/currency/index";
+import { fetchBtcRequest, fetchEthRequest } from '../../actions/currency/index';
 
 const selected = handleActions({
   [selectBtc]: () => 'btc',

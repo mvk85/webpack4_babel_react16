@@ -20,6 +20,7 @@ function* sellFlow(action) {
 
     yield put(sellCurrencySuccess(response.data));
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('error sell = ', error);
     if (error === NOT_ENOUGH) {
       yield put(Notifications.warning(getNotificationError('Не достаточно средств для продажи')));
@@ -58,4 +59,4 @@ export function* buyCurrencyRequestWatch() {
 export default [
   fork(sellCurrencyRequestWatch),
   fork(buyCurrencyRequestWatch)
-]
+];

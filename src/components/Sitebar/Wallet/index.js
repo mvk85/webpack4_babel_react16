@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-svg-spinner';
-import { getIsLoading } from "../../../reducers/wallet";
-import { getWallet } from "../../../reducers/wallet/index";
-import { getChunkNumber } from "../../../api/functions";
+import { getIsLoading } from '../../../reducers/wallet';
+import { getWallet } from '../../../reducers/wallet/index';
+import { getChunkNumber } from '../../../api/functions';
 import { ItemWalletInput } from './styled';
 
 class Wallet extends React.PureComponent {

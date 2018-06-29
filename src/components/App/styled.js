@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { blueColor, redColor} from "../../api/const";
+import { blueColor, redColor} from '../../api/const';
 
 const WIDTH_CONTAINER = 1200;
 const oneColPer = 100/12;

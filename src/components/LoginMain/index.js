@@ -11,14 +11,14 @@ import {
   ContainerLogo,
   Main
 } from './styled';
-import {getIsAuthorized} from "../../reducers/auth/index";
+import {getIsAuthorized} from '../../reducers/auth/index';
 
 export class LoginMain extends React.Component {
   state = {
     isAuth: true
   };
 
-  handleAuth = (isAuth) => { this.setState({ isAuth }) };
+  handleAuth = (isAuth) => { this.setState({ isAuth }); };
 
   render() {
     const { isAuthorized } = this.props;
@@ -44,7 +44,7 @@ export class LoginMain extends React.Component {
         </WrapperLogo>
         <Particles params={particlesConfig} />
       </Main>
-    )
+    );
   }
 }
 

@@ -14,6 +14,6 @@ export default class LoginMain extends React.Component {
       <div>
         <Img src={logo} alt="logo"/>
       </div>
-    )
+    );
   }
 }

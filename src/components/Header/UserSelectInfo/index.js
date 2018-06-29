@@ -1,5 +1,5 @@
 import React from 'react';
-import { LabelInfo } from "../styled";
+import { LabelInfo } from '../styled';
 
 class UserSelectInfo extends React.PureComponent {
   render() {

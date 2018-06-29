@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 import {
   TabCurrency,
   BodyCurrency,
   WrapperSwitch
-} from "../styled";
+} from '../styled';
 
 class SwitchCurrency extends React.PureComponent {
   render() {
@@ -28,5 +28,9 @@ class SwitchCurrency extends React.PureComponent {
     );
   }
 }
+
+SwitchCurrency.propTypes = {
+  switchCurrency: PropTypes.array
+};
 
 export default SwitchCurrency;

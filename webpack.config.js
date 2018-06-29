@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
@@ -17,14 +17,14 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
             options: { minimize: true }
           }
         ]
@@ -34,7 +34,7 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               minimize: {
                 safe: true
@@ -42,11 +42,11 @@ const config = {
             }
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {} // postcss.config.js
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {} // external config
           }
         ]
@@ -75,17 +75,17 @@ const config = {
       root: __dirname
     }),
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
+      template: './src/index.html',
+      filename: './index.html'
       // favicon: "./images/favicon.ico"
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[hash].css",
-      chunkFilename: "[id].css"
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].css'
     })
   ],
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     overlay: true, // error to browser
     hot: true,
     port: 3000,
@@ -96,7 +96,6 @@ const config = {
 };
 
 module.exports = (env, options) => {
-  // console.log(options, options.mode); // production
   const mode = options.mode;
 
   if (mode === 'production') {
@@ -106,4 +105,4 @@ module.exports = (env, options) => {
   }
   
   return config;
-}
+};

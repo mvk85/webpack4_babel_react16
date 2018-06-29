@@ -1,6 +1,6 @@
 import {takeLatest, fork, put, call} from 'redux-saga/effects';
 import {fetchWalletRequest, fetchWalletSuccess, fetchWalletFailure} from '../../actions/wallet';
-import {getWallet} from "../../api/requests";
+import {getWallet} from '../../api/requests';
 
 function* fetchWalletFlow() {
   try {

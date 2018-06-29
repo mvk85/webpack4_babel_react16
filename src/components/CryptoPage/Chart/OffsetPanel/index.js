@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { ButtonOffset } from './styled';
 
 const offsets = {
   '2h': '2ч',
@@ -10,25 +10,7 @@ const offsets = {
   '7d': '7д',
 };
 
-const Buttons = styled.div`
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: flex-end;
-  background-color: #edf0f1;
-  padding-top: 10px;
-  padding-bottom: 10px;
-`;
-const ButtonOffset = styled.button`  
-  margin: 0 4px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  padding: 2px 16px;
-  background-color: ${props => props.isActive ? '#6AB4DD' : 'transparent'};
-  color: ${props => props.isActive ? 'white' : '#9998A1'};  
-`;
-
-class OffsetPanel extends PureComponent {
+class OffsetPanel extends React.PureComponent {
   state = { curBtn: '2h' };
 
   static getDerivedStateFromProps(props, state) {
@@ -69,5 +51,10 @@ class OffsetPanel extends PureComponent {
     );
   }
 }
+
+OffsetPanel.propTypes = {
+  selectOffset: PropTypes.func,
+  offset: PropTypes.string
+};
 
 export default OffsetPanel;

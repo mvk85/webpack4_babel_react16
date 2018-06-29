@@ -60,4 +60,4 @@ export const sellCurrency = (currency, value) =>
       }
 
       return response;
-  });
+    });

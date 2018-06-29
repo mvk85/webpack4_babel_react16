@@ -4,7 +4,7 @@ import {
   fetchUserTransactionsRequest,
   fetchUserTransactionsSuccess,
   fetchUserTransactionsFailure
-} from "../../actions/transactions/index";
+} from '../../actions/transactions/index';
 
 const isLoading = handleActions({
   [fetchUserTransactionsRequest]: () => true,

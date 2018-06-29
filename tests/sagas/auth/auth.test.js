@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { call, put } from 'redux-saga/effects';
 import { authUserWorker, registrationUserWorker } from '../../../src/sagas/auth';
 import { getToken, registration } from '../../../src/api/requests';
@@ -20,8 +21,8 @@ describe('sagas auth', () => {
         expect(saga.next().value).toEqual(call(getToken, action.payload));
       });
       test('loginSuccess', () => {
-        expect(saga.next(action.payload).value).toEqual(put(loginSuccess(action.payload.data.jwt)))
-      })
+        expect(saga.next(action.payload).value).toEqual(put(loginSuccess(action.payload.data.jwt)));
+      });
     });
     describe('failure', () => {
       const action = {};
@@ -33,9 +34,9 @@ describe('sagas auth', () => {
       saga.next();
 
       test('getToken', () => {
-        expect(saga.throw(error).value).toEqual(put(loginFailure(textError)))
+        expect(saga.throw(error).value).toEqual(put(loginFailure(textError)));
       });
-    })
+    });
   });
   describe('registrationUserWorker', () => {
     describe('success', () => {
@@ -53,8 +54,8 @@ describe('sagas auth', () => {
         expect(saga.next().value).toEqual(call(registration, action.payload));
       });
       test('registrationSuccess', () => {
-        expect(saga.next(action.payload).value).toEqual(put(registrationSuccess(action.payload.data.jwt)))
-      })
+        expect(saga.next(action.payload).value).toEqual(put(registrationSuccess(action.payload.data.jwt)));
+      });
     });
     describe('failure', () => {
       const action = {};
@@ -66,8 +67,8 @@ describe('sagas auth', () => {
       saga.next();
 
       test('registration', () => {
-        expect(saga.throw(error).value).toEqual(put(registrationFailure(`error: ${textError}`)))
+        expect(saga.throw(error).value).toEqual(put(registrationFailure(`error: ${textError}`)));
       });
-    })
-  })
+    });
+  });
 });

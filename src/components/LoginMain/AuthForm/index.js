@@ -8,7 +8,7 @@ import {
   FaLock,
   InputField,
   Button
-} from "./styled";
+} from './styled';
 import { loginRequest, registrationRequest } from '../../../actions/auth';
 
 export class AuthForm extends React.Component {
@@ -82,7 +82,7 @@ export class AuthForm extends React.Component {
           {!isAuth && <Button onClick={this.handleReg}>Регистрация</Button>}
         </ContainerForm>
       </WrapperForm>
-    )
+    );
   }
 }
 

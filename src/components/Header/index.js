@@ -6,16 +6,16 @@ import {
   HeaderContent,
   TextBlue,
   InfoContainer
-} from "./styled";
+} from './styled';
 import SwitchCurrency from './SwitchCurrency';
-import { Row, Col4, Col3, Col5 } from "../App/styled";
+import { Row, Col4, Col3, Col5 } from '../App/styled';
 import NewsFeed from './NewsFeed';
 import Info from './Info';
 import UserSelectInfo from './UserSelectInfo';
-import {getIsAuthorized} from "../../reducers/auth/index";
+import {getIsAuthorized} from '../../reducers/auth/index';
 import { selectBtc, selectEth} from '../../actions/currency';
 import Logo from '../commons/Logo';
-import {getCurrentBtcSell, getCurrentEthSell} from "../../reducers/currency/index";
+import {getCurrentBtcSell, getCurrentEthSell} from '../../reducers/currency/index';
 
 export class Header extends React.Component {
   handleBtn = () => { this.props.selectBtc(); };

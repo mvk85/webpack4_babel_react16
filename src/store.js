@@ -18,4 +18,4 @@ export default initState => {
   sagaMiddleware.run(rootSaga);
 
   return store;
-}
+};
