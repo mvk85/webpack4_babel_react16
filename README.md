@@ -53,4 +53,4 @@ This [example](http://elated-curie-a9db44.netlify.com/) application online, depl
 
 ## License
 
-This project is open-sourced software licensed under the [MIT license](https://github.com/mvk85/webpack4_babel_react16/LICENSE.md).
+This project is open-sourced software licensed under the [MIT license](https://github.com/mvk85/webpack4_babel_react16/blob/master/LICENSE.md).
