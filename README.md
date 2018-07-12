@@ -47,7 +47,7 @@ npm run start
 Browser should open automatically. Otherwise, navigate to the URL reported in the terminal
 
 
-## Examples
+## Example
 This [example](http://elated-curie-a9db44.netlify.com/) application online, deploy on [netlify](https://www.netlify.com/)  
 
 
