@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonOffset } from './styled';
+import { ButtonOffset, Buttons } from './styled';
 
 const offsets = {
   '2h': '2ч',
